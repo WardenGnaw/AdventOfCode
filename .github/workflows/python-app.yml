@@ -38,3 +38,4 @@ jobs:
         pytest 2020/Day3/test.py
         pytest 2020/Day4/test.py
         pytest 2020/Day5/test.py
+        pytest 2020/Day6/test.py
