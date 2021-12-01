@@ -53,7 +53,7 @@ namespace AdventOfCode2021.Day1
                     increases++;
                 }
 
-                current_sum = last_sum;
+                last_sum = current_sum;
             }
 
             Console.WriteLine(increases);
