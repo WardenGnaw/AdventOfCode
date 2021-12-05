@@ -5,7 +5,7 @@ using System.Globalization;
 using System.IO;
 using Xunit;
 
-namespace AdventOfCode2021.Day2
+namespace AdventOfCode2021.Day4
 {
     class BingoBoard
     {
