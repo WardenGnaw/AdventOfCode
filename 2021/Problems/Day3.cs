@@ -1,9 +1,4 @@
-using AdventOfCode2021.Utilities;
-using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using Xunit;
 
 namespace AdventOfCode2021.Day3
 {
