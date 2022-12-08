@@ -22,7 +22,7 @@ namespace Problems
                 if (grid[i, y] >= height)
                 {
                     isVisibleTop = false;
-                    continue;
+                    break;
                 }
             }
 
@@ -33,7 +33,7 @@ namespace Problems
                 if (grid[x, i] >= height)
                 {
                     isVisibleRight = false;
-                    continue;
+                    break;
                 }
             }
 
@@ -44,7 +44,7 @@ namespace Problems
                 if (grid[x, i] >= height)
                 {
                     isVisibleLeft = false;
-                    continue;
+                    break;
                 }
             }
 
@@ -55,7 +55,7 @@ namespace Problems
                 if (grid[i, y] >= height)
                 {
                     isVisibleBottom = false;
-                    continue;
+                    break;
                 }
             }
 
@@ -75,15 +75,12 @@ namespace Problems
 
             // Top
             int topSeen = 0;
-            for (int i = 0; i < x; i++)
+            for (int i = x - 1; i >= 0; i--)
             {
                 if (grid[i, y] >= height)
                 {
-                    if (grid[i, y] == height)
-                    {
-                        topSeen += 1;
-                    }
-                    continue;
+                    topSeen += 1;
+                    break;
                 }
                 topSeen += 1;
             }
@@ -94,26 +91,20 @@ namespace Problems
             {
                 if (grid[x, i] >= height)
                 {
-                    if (grid[x, i] == height)
-                    {
-                        rightSeen += 1;
-                    }
-                    continue;
+                    rightSeen += 1;
+                    break;
                 }
                 rightSeen += 1;
             }
 
             // Left
             int leftSeen = 0;
-            for (int i = 0; i < y; i++)
+            for (int i = y - 1; i >= 0; i--)
             {
                 if (grid[x, i] >= height)
                 {
-                    if (grid[x, i] == height)
-                    {
-                        leftSeen += 1;
-                    }
-                    continue;
+                    leftSeen += 1;
+                    break;
                 }
                 leftSeen += 1;
             }
@@ -124,11 +115,8 @@ namespace Problems
             {
                 if (grid[i, y] >= height)
                 {
-                    if (grid[i, y] == height)
-                    {
-                        bottomSeen += 1;
-                    }
-                    continue;
+                    bottomSeen += 1;
+                    break;
                 }
                 bottomSeen += 1;
             }
@@ -199,11 +187,12 @@ namespace Problems
             {
                 for (int y = 0; y < col; y++)
                 {
-                    scenicScores.Add(ScenicScore(grid, x, y, grid[x, y]));
+                    int score = ScenicScore(grid, x, y, grid[x, y]);
+                    scenicScores.Add(score);
                 }
             }
 
-            Assert.Fail("" + scenicScores.OrderByDescending(x => x));
+            Assert.Fail("" + scenicScores.OrderByDescending(x => x).Take(1).Sum());
         }
     }
 }
